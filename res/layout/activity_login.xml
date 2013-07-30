@@ -10,21 +10,22 @@
             android:layout_height="@dimen/action_bar_default_height"
             android:background="@color/green"
             android:orientation="horizontal">
-        <ImageButton
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:background="@null"
 
-            android:src="@drawable/ico_actionbar_lunchtime"/>
+        <ImageButton
+                android:layout_height="wrap_content"
+                android:layout_width="@dimen/default_icon_size"
+                android:layout_gravity="center_vertical"
+                android:background="@null"
+                android:src="@drawable/ico_actionbar_lunchtime"/>
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:textColor="@color/white"
-            android:textSize="22sp"
-            android:paddingLeft="29dp"
-            android:text="Login"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:paddingLeft="29dp"
+                android:text="Login"/>
 
     </LinearLayout>
 
@@ -33,19 +34,30 @@
             android:layout_height="wrap_content"
             android:src="@drawable/img_login_lunchtime"/>
 
-    <EditText
+    <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="E-mail"/>
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:orientation="vertical">
 
-    <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Password"/>
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="E-mail"/>
 
-    <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Login"/>
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"/>
+
+        <Button
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/action_bar_default_height"
+                android:background="@color/blueish"
+                android:text="Login"/>
+    </LinearLayout>
 </LinearLayout>
 
