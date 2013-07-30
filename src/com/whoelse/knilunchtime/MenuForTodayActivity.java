@@ -24,12 +24,15 @@ public class MenuForTodayActivity extends Activity {
 
     public static final String TAG = "LUNCHTIME";
     private ListView mListView;
+    private MenuArrayAdapter mItemArrayAdapter;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
         mListView = (ListView) findViewById(R.id.items_lv);
+        mItemArrayAdapter = new MenuArrayAdapter(this, R.layout.item_on_list);
+        mListView.setAdapter(mItemArrayAdapter);
 
         try {
             JSONObject jsonObject = new JSONObject(readTextFromRawResource(R.raw.meals));
@@ -43,16 +46,10 @@ public class MenuForTodayActivity extends Activity {
     }
 
     private void fillListWithItems(Supplier[] suppliers) {
-        List<Item> items = new ArrayList<Item>();
-        for (Supplier supplier : suppliers) {
-            for (Item item : supplier.items) {
-                items.add(item);
-                item.supplier = supplier;
-            }
-        }
 
-        ArrayAdapter<Item> itemArrayAdapter = new ArrayAdapter<Item>(this, android.R.layout.simple_list_item_1, items);
-        mListView.setAdapter(itemArrayAdapter);
+        mItemArrayAdapter.setSuppliers(suppliers);
+
+
     }
 
     private String readTextFromRawResource(int resourceId) {
