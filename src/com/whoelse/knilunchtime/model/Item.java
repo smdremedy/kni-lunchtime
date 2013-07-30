@@ -12,6 +12,7 @@ public class Item implements Serializable {
     public String name;
     public BigDecimal price;
     public String date;
+    public String image;
     public Order order;
     public Option[] options;
 

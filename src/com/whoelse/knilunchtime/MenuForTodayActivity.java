@@ -1,9 +1,11 @@
 package com.whoelse.knilunchtime;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.ArrayAdapter;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.whoelse.knilunchtime.model.HomeResponse;
@@ -16,15 +18,16 @@ import org.json.JSONObject;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
 
 
-public class MenuForTodayActivity extends Activity {
+public class MenuForTodayActivity extends Activity implements AdapterView.OnItemClickListener {
 
     public static final String TAG = "LUNCHTIME";
+    static final int ORDER_REQUEST = 1;
+
     private ListView mListView;
     private MenuArrayAdapter mItemArrayAdapter;
+    private HomeResponse mResponse;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,11 +36,12 @@ public class MenuForTodayActivity extends Activity {
         mListView = (ListView) findViewById(R.id.items_lv);
         mItemArrayAdapter = new MenuArrayAdapter(this, R.layout.item_on_list);
         mListView.setAdapter(mItemArrayAdapter);
+        mListView.setOnItemClickListener(this);
 
         try {
             JSONObject jsonObject = new JSONObject(readTextFromRawResource(R.raw.meals));
-            HomeResponse response = HomeResponse.fromJsonObject(jsonObject);
-            fillListWithItems(response.suppliers);
+            mResponse = HomeResponse.fromJsonObject(jsonObject);
+            fillListWithItems();
         } catch (JSONException e) {
             Log.e(TAG, "Error while parsing json", e);
         }
@@ -45,9 +49,9 @@ public class MenuForTodayActivity extends Activity {
 
     }
 
-    private void fillListWithItems(Supplier[] suppliers) {
+    private void fillListWithItems() {
 
-        mItemArrayAdapter.setSuppliers(suppliers);
+        mItemArrayAdapter.setSuppliers(mResponse.suppliers);
 
 
     }
@@ -70,5 +74,25 @@ public class MenuForTodayActivity extends Activity {
         }
 
         return byteArrayOutputStream.toString();
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+        Item item = mItemArrayAdapter.getItem(position);
+        Intent intent = new Intent(this, ItemDetailsActivity.class);
+
+        intent.putExtra(Constants.ITEM_BUNDLE_KEY, item);
+        startActivityForResult(intent, ORDER_REQUEST);
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == RESULT_OK) {
+            if (requestCode == ORDER_REQUEST) {
+
+                fillListWithItems();
+            }
+        }
+
     }
 }
