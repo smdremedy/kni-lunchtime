@@ -1,0 +1,138 @@
+{
+    "suppliers" :
+    [
+
+        {
+            "supplier_id" : 1,
+            "name" : "Duża Micha",
+            "items" :
+            [
+                {
+                    "item_id" : 1,
+                    "name" : "kanapka, fryty i coś białego",
+                    "price" : 1850,
+                    "date" : "31-07-2013",
+                    "image" : "1.jpg",
+                    "options" :
+                    [
+                        {
+                            "option_id" : 1,
+                            "name" : "Zupa szczawiowa"
+                        },
+                        {
+                            "option_id" : 2,
+                            "name" : "Zupa pomidorowa"
+                        }
+                    ],
+                    "order" :
+                    {
+                        "order_id" : 1,
+                        "option_id" : 1
+                    }
+                },
+                {
+                    "item_id" : 2,
+                    "name" : "mięcho z sosem i fasolka",
+                    "price" : 1850,
+                    "date" : "31-07-2013",
+                    "image" : "2.jpg",
+                    "options" :
+                    [
+                        {
+                            "option_id" : 3,
+                            "name" : "Zupa szczawiowa"
+                        },
+                        {
+                            "option_id" : 4,
+                            "name" : "Zupa pomidorowa"
+                        }
+                    ],
+                    "order" : null
+
+                },
+                {
+                    "item_id" : 3,
+                    "name" : "wielki talerz, malo zupy",
+                    "price" : 750,
+                    "date" : "31-07-2013",
+                    "image" : "3.jpg",
+                    "options" : null,
+                    "order" : null
+
+                },
+                {
+                    "item_id" : 4,
+                    "name" : "ciacho z lodami",
+                    "price" : 1000,
+                    "date" : "31-07-2013",
+                    "image" : "4.jpg",
+                    "options" : null,
+                    "order" : null
+
+                },
+                {
+                    "item_id" : 5,
+                    "name" : "coś w 5 smakach z ryżem",
+                    "price" : 1200,
+                    "date" : "31-07-2013",
+                    "image" : "5.jpg",
+                    "options" : null,
+                    "order" : null
+
+                }
+            ]
+        },
+        {
+            "supplier_id" : 2,
+            "name" : "Pełny Brzuszek",
+            "items" :
+            [
+                {
+                    "item_id" : 6,
+                    "name" : "mięso z ryżem",
+                    "price" : 1200,
+                    "date" : "31-07-2013",
+                    "image" : "6.jpg",
+                    "options" : null,
+                    "order" : null
+                },
+                {
+                    "item_id" : 7,
+                    "name" : "wielka beza",
+                    "price" : 2500,
+                    "date" : "31-07-2013",
+                    "image" : "7.jpg",
+                    "options" : null,
+                    "order" : null
+                },
+                {
+                    "item_id" : 8,
+                    "name" : "jakiś kebab",
+                    "price" : 1200,
+                    "date" : "31-07-2013",
+                    "image" : "8.jpg",
+                    "options" : null,
+                    "order" : null
+                },
+                {
+                    "item_id" : 9,
+                    "name" : "żebra z frytami",
+                    "price" : 1200,
+                    "date" : "31-07-2013",
+                    "image" : "9.jpg",
+                    "options" : null,
+                    "order" : null
+                },
+                {
+                    "item_id" : 10,
+                    "name" : "pasta z sosem",
+                    "price" : 1200,
+                    "date" : "31-07-2013",
+                    "image" : "10.jpg",
+                    "options" : null,
+                    "order" : null
+                }
+            ]
+        }
+    ]
+}
