@@ -28,5 +28,12 @@
                 android:text="Menu for today"/>
 
     </LinearLayout>
+    <ListView
+            android:id="@+id/items_lv"
+            android:cacheColorHint="@android:color/transparent"
+            android:background="@color/blackish"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="1px" />
 
 </LinearLayout>

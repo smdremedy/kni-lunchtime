@@ -17,4 +17,8 @@ public class Item implements Serializable {
 
     public transient Supplier supplier;
 
+    @Override
+    public String toString() {
+        return name;
+    }
 }
