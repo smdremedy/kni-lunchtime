@@ -12,11 +12,12 @@ public class Item implements Serializable {
     public String name;
     public BigDecimal price;
     public String date;
+    @SerializedName("image_url")
     public String image;
     public Order order;
     public Option[] options;
 
-    public transient Supplier supplier;
+    public Supplier supplier;
 
     @Override
     public String toString() {

@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">LoginActivity</string>
+
+    <string name="app_name">Lunchtime</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="order">Zamów</string>
+    <string name="cancel_order">Rezygnuj</string>
+    <string name="cancel">Anuluj</string>
+    <string name="choose_option">Wybierz jedną z dostępnych opcji</string>
+    <string name="your_order">Twoje zamówienie</string>
+    <string name="price_for_details">Cena: %1s</string>
+    <string name="not_logged">Zaloguj się ponownie</string>
+
 </resources>

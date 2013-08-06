@@ -1,39 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <LinearLayout
+    <RelativeLayout
+            android:id="@+id/loginActionBar"
             android:layout_width="match_parent"
             android:layout_height="@dimen/action_bar_default_height"
-            android:background="@color/green"
-            android:orientation="horizontal">
+            android:background="@color/green" >
 
         <ImageButton
-                android:layout_height="wrap_content"
+                android:id="@+id/actionbar_home_ibtn"
                 android:layout_width="@dimen/default_icon_size"
-                android:layout_gravity="center_vertical"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
                 android:background="@null"
-                android:src="@drawable/ico_actionbar_lunchtime"/>
+                android:onClick="onClickHandler"
+                android:src="@drawable/ico_actionbar_lunchtime"
+                android:visibility="visible" />
 
         <TextView
+                android:id="@+id/actionbar_screen_name_tv"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@id/actionbar_home_ibtn"
+                android:gravity="center"
+                android:text="Menu na dzisiaj"
                 android:textColor="@color/white"
                 android:textSize="22sp"
-                android:paddingLeft="29dp"
-                android:text="Menu for today"/>
+                />
+    </RelativeLayout>
 
-    </LinearLayout>
     <ListView
             android:id="@+id/items_lv"
-            android:cacheColorHint="@android:color/transparent"
-            android:background="@color/blackish"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="1px" />
+            android:layout_marginTop="1px"
+            />
 
 </LinearLayout>
