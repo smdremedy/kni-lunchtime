@@ -2,6 +2,7 @@ package com.whoelse.knilunchtime;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
@@ -34,6 +35,7 @@ public class MenuForTodayActivity extends Activity implements AdapterView.OnItem
         mListView = (ListView) findViewById(R.id.items_lv);
 
         mAQ = new AQuery(this);
+        mAQ.id(R.id.actionbar_logout_btn).clicked(this, "logoutClicked");
         mItemArrayAdapter = new MenuArrayAdapter(this, R.layout.item_on_list);
         mListView.setAdapter(mItemArrayAdapter);
         mListView.setOnItemClickListener(this);
@@ -86,6 +88,34 @@ public class MenuForTodayActivity extends Activity implements AdapterView.OnItem
         Intent intent = new Intent(this, ItemDetailsActivity.class);
         intent.putExtra(Constants.ITEM_BUNDLE_KEY, item);
         startActivityForResult(intent, ORDER_REQUEST);
+    }
+
+    public void logoutClicked(View button) {
+        String cookieValue = PreferenceManager.getDefaultSharedPreferences(
+                getApplicationContext()).getString(
+                Constants.COOKIE_VALUE_PREFS_KEY, "");
+        if (!TextUtils.isEmpty(cookieValue)) {
+
+            String url = Constants.LOGOUT_URL;
+
+            AjaxCallback<JSONObject> cb = new AjaxCallback<JSONObject>() {
+
+                @Override
+                public void callback(String url, JSONObject json,
+                                     AjaxStatus status) {
+                    SharedPreferences sharedPreferences = PreferenceManager
+                            .getDefaultSharedPreferences(getApplicationContext());
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.clear();
+                    editor.commit();
+                    finish();
+
+                }
+            };
+
+            mAQ.ajax(url, JSONObject.class, cb);
+        }
+
     }
 
 

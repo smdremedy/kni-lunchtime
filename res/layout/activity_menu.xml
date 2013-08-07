@@ -30,6 +30,12 @@
                 android:textColor="@color/white"
                 android:textSize="22sp"
                 />
+        <Button
+                android:id="@+id/actionbar_logout_btn"
+                android:text="Wyloguj"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
     </RelativeLayout>
 
     <ListView

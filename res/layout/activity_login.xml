@@ -47,12 +47,14 @@
                 android:id="@+id/email_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
                 android:hint="E-mail"/>
 
         <EditText
                 android:id="@+id/password_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:password="true"
                 android:hint="Password"/>
 
         <Button

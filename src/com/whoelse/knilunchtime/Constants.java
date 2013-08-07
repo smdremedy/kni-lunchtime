@@ -20,4 +20,5 @@ public class Constants {
     public static final String SUPPLIERS_URL = LUNCHTIME_URL + "/home/index?format=json";
     public static final String CANCEL_ORDER_URL = LUNCHTIME_URL + "/orders/%d?format=json";
     public static final String PLACE_ORDER_URL = LUNCHTIME_URL + "/orders?format=json";
+    public static final String LOGOUT_URL = "https://obiady-whoelse.herokuapp.com/log_out?format=json";
 }
